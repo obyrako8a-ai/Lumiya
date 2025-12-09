@@ -1,0 +1,15 @@
+<svg width="1300" height="748" viewBox="0 0 1300 748" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="12.0937" y="743" width="739" height="1275" transform="rotate(-90 12.0937 743)" fill="#05C1F1" stroke="black" stroke-width="5"/>
+<path d="M539.094 449.5L9.59375 745.5H1289.59L756.094 449.5H539.094Z" fill="#01B37F" stroke="black" stroke-width="5"/>
+<path d="M539.094 298.5L9.59375 2.5H1289.59L756.094 298.5H539.094Z" fill="#01B37F" stroke="black" stroke-width="5" stroke-linejoin="bevel"/>
+<rect x="124.094" y="683" width="618" height="1051" transform="rotate(-90 124.094 683)" stroke="black" stroke-width="5"/>
+<rect x="231.094" y="621" width="495" height="840" transform="rotate(-90 231.094 621)" stroke="black" stroke-width="5"/>
+<rect x="323.094" y="565" width="382" height="652" transform="rotate(-90 323.094 565)" stroke="black" stroke-width="5"/>
+<rect x="409.094" y="523" width="298" height="480" transform="rotate(-90 409.094 523)" stroke="black" stroke-width="5"/>
+<rect x="482.094" y="482" width="217" height="333" transform="rotate(-90 482.094 482)" stroke="black" stroke-width="5"/>
+<rect x="541.094" y="450" width="152" height="213" transform="rotate(-90 541.094 450)" stroke="black" stroke-width="5"/>
+<path d="M11.5953 405.5L538.529 371.998" stroke="black" stroke-width="5"/>
+<path d="M1287.09 408.5L756.111 374.504" stroke="black" stroke-width="5"/>
+<path d="M645.094 297V1.5" stroke="black" stroke-width="5"/>
+<path d="M645.094 745V449.5" stroke="black" stroke-width="5"/>
+</svg>
