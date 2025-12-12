@@ -63,7 +63,7 @@
 /* БОКС ДЛЯ ВСЕГО ЛИЦА */
 .face-layer {
   width: 100vw;
-  height: calc(100vh - 360px);
+  height: calc(2 * 25vw + 25vw + 30vw);
   position: relative;
   z-index: 10;
   overflow: hidden;
