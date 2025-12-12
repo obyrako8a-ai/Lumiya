@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+  font-family: 'KvitkaSPDemo';
+  src: url('../fonts/KvitkaSPDemo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* ВЕРХНИЙ БОКС */
+.top-ui-layer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* СИНИЙ ПРЯМОУГОЛЬНИК С ЛОГО */
+.top-bar {
+  width: 100%;
+  height: 25vw;
+  background-color: #2B50AA;
+  border: 5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 3vw;
+}
+
+/* ГОЛУБОЙ ПРЯМОУГОЛЬНИК С ТЕКСТОМ */
+.bottom-bar {
+  width: 100%;
+  height: 15vw;
+  background-color: #01B37F;
+  border: 5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.bottom-text {
+  font-family: 'KvitkaSPDemo', sans-serif;
+  font-size: 15vw;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+/* БОКС ДЛЯ ВСЕГО ЛИЦА */
+.face-layer {
+  width: 100vw;
+  height: calc(100vh - 360px);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+/* БРОВИ */
+.brows-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+}
+
+.brows-strip {
+  display: flex;
+  height: 100%;
+}
+
+.brows-row-atom {
+  width: 25vw;
+  height: 100%;
+  border: 5px solid black;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.brows-row-atom:nth-of-type(1) {
+    background-color: #05C1F1;
+    background-image: url('../images/blue eyebrow up.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.brows-row-atom:nth-of-type(2) {
+    background-color: #05C1F1;
+    background-image: url('../images/blue\ eyebrow\ down.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.brows-row-atom:nth-of-type(3) {
+    background-color: #FF4431;
+    background-image: url('../images/red\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.brows-row-atom:nth-of-type(4) {
+    background-color: #FF4431;
+    background-image: url('../images/red\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transform: scaleX(-1);
+}
+.brows-row-atom:nth-of-type(5) {
+    background-color: #F7DE1C;
+    background-image: url('../images/yellow\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transform: scaleX(-1);
+}
+.brows-row-atom:nth-of-type(6) {
+    background-color: #F7DE1C;
+    background-image: url('../images/yellow\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.brows-row-atom:nth-of-type(7) {
+    background-color: #7A59A4;
+    background-image: url('../images/purple\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.brows-row-atom:nth-of-type(8) {
+    background-color: #7A59A4;
+    background-image: url('../images/purple\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.brows-row-atom:nth-of-type(9) {
+    background-color: #01B37F;
+    background-image: url('../images/green\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.brows-row-atom:nth-of-type(10) {
+    background-color: #01B37F;
+    background-image: url('../images/green\ eyebrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+/* УШИ СЛЕВА */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-25vw);
+}
+
+.sidebar-atom {
+  width: 100%;
+  height: 25vw;
+  border: 5px solid rgb(0, 0, 0);
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 1;
+}
+.sidebar-atom:nth-of-type(1) {
+    background-color: #05C1F1;
+    background-image: url('../images/yellow\ ear.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.sidebar-atom:nth-of-type(2) {
+    background-color: #FF4431;
+    background-image: url('../images/blue\ ear.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.sidebar-atom:nth-of-type(3) {
+    background-color: #F7DE1C;
+    background-image: url('../images/purple\ ear.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.sidebar-atom:nth-of-type(4) {
+    background-color: #01B37F;
+    background-image: url('../images/pink\ ear.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.sidebar-atom:nth-of-type(5) {
+    background-color: #FF8CBD;
+    background-image: url('../images/red\ ear.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.sidebar-atom:nth-of-type(6) {
+    background-color: #7A59A4;
+    background-image: url('../images/yellow\ big\ ear.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+/* УШИ СПРАВА */
+.vertical-atoms-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transform: translateY(-25vw);
+}
+
+.vertical-atoms-right .vertical-atom {
+  width: 100%;
+  height: 25vw;
+  background-color: #05C1F1;
+  border: 5px solid rgb(0, 0, 0);
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transform: scaleX(-1);
+}
+.vertical-atoms-right .vertical-atom:nth-of-type(1) {
+  background-color: #05C1F1;
+  background-image: url('../images/yellow ear.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.vertical-atoms-right .vertical-atom:nth-of-type(2) {
+  background-color: #FF4431;
+  background-image: url('../images/blue ear.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.vertical-atoms-right .vertical-atom:nth-of-type(3) {
+  background-color: #F7DE1C;
+  background-image: url('../images/purple ear.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.vertical-atoms-right .vertical-atom:nth-of-type(4) {
+  background-color: #01B37F;
+  background-image: url('../images/pink ear.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.vertical-atoms-right .vertical-atom:nth-of-type(5) {
+  background-color: #FF8CBD;
+  background-image: url('../images/red ear.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.vertical-atoms-right .vertical-atom:nth-of-type(6) {
+  background-color: #7A59A4;
+  background-image: url('../images/yellow big ear.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+/* ГЛАЗА СЛЕВА */
+.center-left-panel {
+  position: absolute;
+  top: 0;
+  left: 25vw;
+  width: 25vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.center-left-panel .panel-atom {
+  width: 100%;
+  height: 25vw;
+  background-color: #f0f0f0;
+  border: 5px solid #000000;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-left-panel .panel-atom:nth-of-type(1) {
+  background-color: #FF8CBD;
+  background-image: url('../images/pink\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-left-panel .panel-atom:nth-of-type(2) {
+  background-color: #7A59A4;
+  background-image: url('../images/purple\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-left-panel .panel-atom:nth-of-type(3) {
+  background-color: #FF4431;
+  background-image: url('../images/red\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-left-panel .panel-atom:nth-of-type(4) {
+  background-color: #F7DE1C;
+  background-image: url('../images/yellow\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-left-panel .panel-atom:nth-of-type(5) {
+  background-color: #01B37F;
+  background-image: url('../images/green\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-left-panel .panel-atom:nth-of-type(6) {
+  background-color: #05C1F1;
+  background-image: url('../images/blue\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+/* ГЛАЗА СПРАВА */
+.center-right-panel {
+  position: absolute;
+  top: 0;
+  left: 50vw;
+  width: 25vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+.center-right-panel .panel-atom {
+  width: 100%;
+  height: 25vw;
+  background-color: #f0f0ff;
+  border: 5px solid #000000;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-right-panel .panel-atom:nth-of-type(1) {
+  background-color: #FF8CBD;
+  background-image: url('../images/pink\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-right-panel .panel-atom:nth-of-type(2) {
+  background-color: #7A59A4;
+  background-image: url('../images/purple\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-right-panel .panel-atom:nth-of-type(3) {
+  background-color: #FF4431;
+  background-image: url('../images/red\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-right-panel .panel-atom:nth-of-type(4) {
+  background-color: #F7DE1C;
+  background-image: url('../images/yellow\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-right-panel .panel-atom:nth-of-type(5) {
+  background-color: #01B37F;
+  background-image: url('../images/green\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.center-right-panel .panel-atom:nth-of-type(6) {
+  background-color: #05C1F1;
+  background-image: url('../images//blue\ eye.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+} 
