@@ -554,3 +554,40 @@
   background-size: contain;
   background-position: center;
 }
+/* БОКС С ДЕТАЛЯМИ */
+.details-row {
+  width: 100vw;
+  height: 37.5vw;
+  display: flex;
+}
+
+/* СТИЛИ ДЛЯ ЯЧЕЕК */
+.wings,
+.tails,
+.horns {
+  height: 100%;
+  width: 28vw;
+  border: 5px solid black;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* КРЫЛЬЯ */
+.wings {
+  background-color: #7A59A4; /* фиолетовый */
+  /* левая ячейка автоматически прижата к левому краю */
+}
+
+/* ХВОСТЫ */
+.tails {
+  background-color: #01B37F; /* зелёный */
+  margin: 0 auto; /* ← центрирует элемент в flex-контейнере */
+}
+
+/* РОГА */
+.horns {
+  background-color: #FF8CBD; /* розовый */
+  /* правая ячейка — последняя, прижата к правому краю */
+}
