@@ -63,7 +63,7 @@
 /* БОКС ДЛЯ ВСЕГО ЛИЦА */
 .face-layer {
   width: 100vw;
-  height: calc(2 * 25vw + 25vw + 30vw);
+  height: calc(2 * 25vw + 25vw + 28vw);
   position: relative;
   z-index: 10;
   overflow: hidden;
@@ -498,24 +498,21 @@
 /* РОТ И РУКИ */
 .mouth-container {
   position: absolute;
-  top: calc(2 * 25vw + 25vw); /* под носами */
+  top: calc(2 * 25vw + 25vw);
   left: 0;
   width: 100vw;
   height: 30vw;
   z-index: 998;
-  display: flex; /* ← как в face-layer */
+  display: flex;
 }
 
 /* ЛЕВАЯ РУКА */
 .left-hand {
   width: 25vw;
-  height: 28vw; /* чуть выше глаза */
+  height: 28vw;
   background-color: #FF4431;
   border: 5px solid black;
   flex-shrink: 0;
-}
-.left-hand {
-  background-color: #FF4431;
   background-image: url('../images/hand.svg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -529,9 +526,6 @@
   background-color: #F7DE1C;
   border: 5px solid black;
   flex-shrink: 0;
-}
-.mouth {
-  background-color: #F7DE1C;
   background-image: url('../images/mouth closed.svg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -545,10 +539,7 @@
   background-color: #FF4431;
   border: 5px solid black;
   flex-shrink: 0;
-  transform: scaleX(-1); /* ← отзеркалить (если нужно) */
-}
-.right-hand {
-  background-color: #FF4431;
+  transform: scaleX(-1);
   background-image: url('../images/hand.svg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -566,9 +557,9 @@
 .tails,
 .horns {
   height: 100%;
-  width: 28vw;
-  border: 5px solid black;
   flex-shrink: 0;
+  width: 33.33vw;
+  border: 5px solid black;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -576,18 +567,80 @@
 
 /* КРЫЛЬЯ */
 .wings {
-  background-color: #7A59A4; /* фиолетовый */
-  /* левая ячейка автоматически прижата к левому краю */
+  background-color: #F7DE1C;
+  background-image: url('../images/pink wing.svg');
 }
-
 /* ХВОСТЫ */
 .tails {
-  background-color: #01B37F; /* зелёный */
-  margin: 0 auto; /* ← центрирует элемент в flex-контейнере */
+  background-color: #01B37F;
+  background-image: url('../images/red\ tail.svg');
 }
-
 /* РОГА */
 .horns {
-  background-color: #FF8CBD; /* розовый */
-  /* правая ячейка — последняя, прижата к правому краю */
+  background-color: #7A59A4;
+  background-image: url('../images/yellow\ horns.svg');
+}
+/* ПОСЛЕДНИЙ БЛОК */
+.final-section {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ТЕКСТОВЫЕ ПРЯМОУГОЛЬНИКИ */
+.final-bar {
+  width: 100%;
+  border: 5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: 'KvitkaSPDemo', sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* ВЕРХНИЙ ТЕКСТОВЫЙ БЛОК */
+.final-bar.top {
+  height: 15vw;
+  background-color: #FF4431;
+  font-size: 15vw;
+  line-height: 1.2;
+}
+
+/* СРЕДНИЙ ТЕКСТОВЫЙ БЛОК */
+.final-bar.middle {
+  height: 15vw;
+  background-color: #33BEFF;
+  font-size: 15vw;
+  line-height: 1.2;
+}
+
+/* НИЖНИЙ ТЕКСТОВЫЙ БЛОК */
+.final-bar.bottom {
+  height: 7.5vw;
+  background-color: #2B50AA;
+  font-size: 6vw;
+  line-height: 1.2;
+}
+
+/* ПРОСТРАНСТВО */
+.final-large-box {
+  width: 100%;
+  height: 50vw;
+  border: 5px solid black;
+  box-sizing: border-box;
+  background-image: url('../images/hall.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ОБЩИЙ ТЕКСТ (можно вынести в отдельный класс) */
+.final-text {
+  padding: 0 10px; /* небольшой отступ, чтобы не упирался в рамку */
 }
