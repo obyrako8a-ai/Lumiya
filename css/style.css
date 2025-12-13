@@ -74,7 +74,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 15vh;
+  height: 15vmin;
   display: flex;
   align-items: center;
   z-index: 999;
@@ -548,7 +548,7 @@
 /* БОКС С ДЕТАЛЯМИ */
 .details-row {
   width: 100vw;
-  height: 37.5vw;
+  height: 37.5vmin;
   display: flex;
 }
 
@@ -606,32 +606,32 @@
 
 /* ВЕРХНИЙ ТЕКСТОВЫЙ БЛОК */
 .final-bar.top {
-  height: 15vw;
+  height: 15vmin;
   background-color: #FF4431;
-  font-size: 15vw;
+  font-size: 15vmin;
   line-height: 1.2;
 }
 
 /* СРЕДНИЙ ТЕКСТОВЫЙ БЛОК */
 .final-bar.middle {
-  height: 15vw;
+  height: 15vmin;
   background-color: #33BEFF;
-  font-size: 15vw;
+  font-size: 15vmin;
   line-height: 1.2;
 }
 
 /* НИЖНИЙ ТЕКСТОВЫЙ БЛОК */
 .final-bar.bottom {
-  height: 7.5vw;
+  height: 7.5vmin;
   background-color: #2B50AA;
-  font-size: 6vw;
+  font-size: 6vmin;
   line-height: 1.2;
 }
 
 /* ПРОСТРАНСТВО */
 .final-large-box {
   width: 100%;
-  height: 50vw;
+  height: 57vmin;
   border: 5px solid black;
   box-sizing: border-box;
   background-image: url('../images/hall.svg');
