@@ -48,6 +48,18 @@
   position: relative;
 }
 
+/* ТЕКСТ + ДУБЛЬ */
+/* ГОЛУБОЙ ПРЯМОУГОЛЬНИК С ТЕКСТОМ */
+.bottom-bar {
+  width: 100%;
+  height: 15vw;
+  background-color: #01B37F;
+  border: 5px solid black;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
 /* ТЕКСТ */
 .bottom-text {
   position: absolute;
@@ -59,7 +71,9 @@
   text-transform: uppercase;
   line-height: 1;
   transform: translateY(-50%);
-  animation: scrollLeftToRight 25s linear infinite;
+
+  /* Анимация */
+  animation: scrollLeftToRight 5s linear infinite;
 }
 
 /* АНИМАЦИЯ */
