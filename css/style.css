@@ -43,22 +43,33 @@
   height: 15vw;
   background-color: #01B37F;
   border: 5px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
 }
 
+/* ТЕКСТ */
 .bottom-text {
+  position: absolute;
+  top: 50%;
+  white-space: nowrap;
   font-family: 'KvitkaSPDemo', sans-serif;
   font-size: 15vw;
   color: white;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2;
   text-transform: uppercase;
+  line-height: 1;
+  transform: translateY(-50%);
+  animation: scrollLeftToRight 25s linear infinite;
+}
+
+/* АНИМАЦИЯ */
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(100vw) translateY(-50%);
+  }
+  100% {
+    transform: translateX(-100%) translateY(-50%);
+  }
 }
 /* БОКС ДЛЯ ВСЕГО ЛИЦА */
 .face-layer {
@@ -642,5 +653,5 @@
 
 /* ОБЩИЙ ТЕКСТ (можно вынести в отдельный класс) */
 .final-text {
-  padding: 0 10px; /* небольшой отступ, чтобы не упирался в рамку */
+  padding: 0 10px;
 }
