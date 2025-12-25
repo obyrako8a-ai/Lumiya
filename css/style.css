@@ -508,6 +508,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  transition: background-image 0.3s ease;
+}
+
+.mouth:hover {
+  background-image: url('../images/mouth open.svg');
 }
 
 /* ПРАВАЯ РУКА */
