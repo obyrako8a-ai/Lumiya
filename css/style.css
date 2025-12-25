@@ -179,7 +179,18 @@
     background-size: contain;
     background-position: center;
 }
-/* УШИ СЛЕВА */
+/* --- ОБЩИЕ СТИЛИ УХА --- */
+.ear {
+  width: 100%;
+  height: 25vw;
+  border: 5px solid black;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* === ЛЕВЫЕ УШИ === */
 .ears-left {
   position: absolute;
   top: 0;
@@ -189,44 +200,51 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform: translateY(-25vw);
+  animation: scrollUp 8s linear infinite;
 }
 
-.ear {
-  width: 100%;
-  height: 25vw;
-  border: 5px solid rgb(0, 0, 0);
-  flex-shrink: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+.ears-left:hover {
+  animation-play-state: paused;
 }
 
-.ear:nth-of-type(1) {
+/* Стили по nth-of-type для левых ушей */
+.ears-left .ear:nth-of-type(1),
+.ears-left .ear:nth-of-type(7) {
   background-color: #05C1F1;
   background-image: url('../images/yellow\ ear.svg');
 }
-.ear:nth-of-type(2) {
+
+.ears-left .ear:nth-of-type(2),
+.ears-left .ear:nth-of-type(8) {
   background-color: #FF4431;
   background-image: url('../images/blue\ ear.svg');
 }
-.ear:nth-of-type(3) {
+
+.ears-left .ear:nth-of-type(3),
+.ears-left .ear:nth-of-type(9) {
   background-color: #F7DE1C;
   background-image: url('../images/purple\ ear.svg');
 }
-.ear:nth-of-type(4) {
+
+.ears-left .ear:nth-of-type(4),
+.ears-left .ear:nth-of-type(10) {
   background-color: #01B37F;
   background-image: url('../images/pink\ ear.svg');
 }
-.ear:nth-of-type(5) {
+
+.ears-left .ear:nth-of-type(5),
+.ears-left .ear:nth-of-type(11) {
   background-color: #FF8CBD;
   background-image: url('../images/red\ ear.svg');
 }
-.ear:nth-of-type(6) {
+
+.ears-left .ear:nth-of-type(6),
+.ears-left .ear:nth-of-type(12) {
   background-color: #7A59A4;
-  background-image: url('../images/yellow\ big-ear.svg');
+  background-image: url('../images/yellow\ big\ ear.svg');
 }
-/* УШИ СПРАВА */
+
+/* === ПРАВЫЕ УШИ === */
 .ears-right {
   position: absolute;
   top: 0;
@@ -235,48 +253,60 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   z-index: 1;
-  transform: translateY(-25vw);
+  animation: scrollUp 8s linear infinite;
+}
+
+.ears-right:hover {
+  animation-play-state: paused;
 }
 
 .ears-right .ear {
-  width: 100%;
-  height: 25vw;
-  border: 5px solid rgb(0, 0, 0);
-  flex-shrink: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
   transform: scaleX(-1);
 }
-.ears-right .ear:nth-of-type(1) {
+
+/* Стили для правых ушей */
+.ears-right .ear:nth-of-type(1),
+.ears-right .ear:nth-of-type(7) {
   background-color: #05C1F1;
   background-image: url('../images/yellow ear.svg');
 }
 
-.ears-right .ear:nth-of-type(2) {
+.ears-right .ear:nth-of-type(2),
+.ears-right .ear:nth-of-type(8) {
   background-color: #FF4431;
   background-image: url('../images/blue ear.svg');
 }
 
-.ears-right .ear:nth-of-type(3) {
+.ears-right .ear:nth-of-type(3),
+.ears-right .ear:nth-of-type(9) {
   background-color: #F7DE1C;
   background-image: url('../images/purple ear.svg');
 }
 
-.ears-right .ear:nth-of-type(4) {
+.ears-right .ear:nth-of-type(4),
+.ears-right .ear:nth-of-type(10) {
   background-color: #01B37F;
   background-image: url('../images/pink ear.svg');
 }
 
-.ears-right .ear:nth-of-type(5) {
+.ears-right .ear:nth-of-type(5),
+.ears-right .ear:nth-of-type(11) {
   background-color: #FF8CBD;
   background-image: url('../images/red ear.svg');
 }
 
-.ears-right .ear:nth-of-type(6) {
+.ears-right .ear:nth-of-type(6),
+.ears-right .ear:nth-of-type(12) {
   background-color: #7A59A4;
   background-image: url('../images/yellow big ear.svg');
+}
+
+/* === АНИМАЦИЯ === */
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-150vw); } /* 6 × 25vw */
 }
 /* ГЛАЗА СЛЕВА */
 .center-left-panel {
@@ -484,17 +514,70 @@
   display: flex;
 }
 
-/* ЛЕВАЯ РУКА */
-.left-hand {
+/* --- ОБЩИЙ КОНТЕЙНЕР РУКИ --- */
+.left-hand,
+.right-hand {
   width: 25vw;
   height: 28vw;
-  background-color: #FF4431;
   border: 5px solid black;
   flex-shrink: 0;
-  background-image: url('../images/hand.svg');
+  position: relative;
+}
+
+.right-hand {
+  transform: scaleX(-1);
+}
+
+/* --- СЛОЙ СОСТОЯНИЯ --- */
+.hand-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  opacity: 0;
+}
+
+.left-hand .hand-1,
+.right-hand .hand-1 {
+  opacity: 1;
+  background-color: #FF4431;
+  background-image: url('../images/hand.svg');
+  animation: hideAfter3s 4s infinite;
+}
+
+.left-hand .hand-2,
+.right-hand .hand-2 {
+  background-color: #F7DE1C;
+  background-image: url('../images/ogre\ paw.svg');
+  animation: showFrom3to6s 4s infinite;
+}
+
+.left-hand .hand-3,
+.right-hand .hand-3 {
+  background-color: #01B37F;
+  background-image: url('../images/cat\'s\ paw.svg');
+  animation: showFrom6to9s 4s infinite;
+}
+
+/* АНИМАЦИИ */
+@keyframes hideAfter3s {
+  0%, 33.33% { opacity: 1; }
+  33.34%, 100% { opacity: 0; }
+}
+
+@keyframes showFrom3to6s {
+  0%, 33.33% { opacity: 0; }
+  33.34%, 66.66% { opacity: 1; }
+  66.67%, 100% { opacity: 0; }
+}
+
+@keyframes showFrom6to9s {
+  0%, 66.66% { opacity: 0; }
+  66.67%, 100% { opacity: 1; }
 }
 
 /* РОТ */
@@ -515,24 +598,13 @@
   background-image: url('../images/mouth open.svg');
 }
 
-/* ПРАВАЯ РУКА */
-.right-hand {
-  width: 25vw;
-  height: 28vw;
-  background-color: #FF4431;
-  border: 5px solid black;
-  flex-shrink: 0;
-  transform: scaleX(-1);
-  background-image: url('../images/hand.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
 /* БОКС С ДЕТАЛЯМИ */
 .details-row {
   width: 100vw;
   height: 37.5vmin;
   display: flex;
+  z-index: 1000;
+  position: relative;
 }
 
 /* СТИЛИ ДЛЯ ЯЧЕЕК */
@@ -546,22 +618,43 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  transition: all 0.3s ease;
 }
 
-/* КРЫЛЬЯ */
+/* === КРЫЛЬЯ === */
 .wings {
   background-color: #F7DE1C;
   background-image: url('../images/pink wing.svg');
 }
-/* ХВОСТЫ */
+
+.wings:hover {
+  background-color: #FF8CBD;
+  background-image: url('../images/yellow wing.svg');
+  transform: scale(1.1);
+}
+
+/* === ХВОСТЫ === */
 .tails {
   background-color: #01B37F;
-  background-image: url('../images/red\ tail.svg');
+  background-image: url('../images/red tail.svg');
 }
-/* РОГА */
+
+.tails:hover {
+  background-color: #FF4431;
+  background-image: url('../images/green tail.svg');
+  transform: scale(1.1);
+}
+
+/* === РОГА === */
 .horns {
   background-color: #7A59A4;
-  background-image: url('../images/yellow\ horns.svg');
+  background-image: url('../images/yellow horns.svg');
+}
+
+.horns:hover {
+  background-color: #F7DE1C;
+  background-image: url('../images/purple horns.svg');
+  transform: scale(1.1);
 }
 /* ПОСЛЕДНИЙ БЛОК */
 .final-section {
