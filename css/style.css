@@ -23,7 +23,7 @@
   width: 100%;
   height: 25vw;
   background-color: #2B50AA;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +42,7 @@
   width: 100%;
   height: 15vw;
   background-color: #01B37F;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
@@ -98,13 +98,13 @@
   overflow: hidden;
   animation: scrollBrows 8s linear infinite;
   flex-wrap: nowrap;
-  min-width: fit-content; /* ← важно! */
+  min-width: fit-content;
 }
 
 .brows-row-atom {
   width: 25vw;
   height: 100%;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -200,7 +200,7 @@
 .ear {
   width: 100%;
   height: 25vw;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -309,7 +309,7 @@
 .ears-right .ear {
   width: 100%;
   height: 25vw;
-  border: 5px solid rgb(0, 0, 0);
+  border: 0.65vw solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -360,7 +360,7 @@
 .center-left-panel .panel-atom {
   width: 100%;
   height: 25vw;
-  border: 5px solid #000000;
+  border: 0.65vw solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -422,7 +422,7 @@
 .center-right-panel .panel-atom {
   width: 100%;
   height: 25vw;
-  border: 5px solid #000000;
+  border: 0.65vw solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -519,7 +519,7 @@
   width: 28vw;
   height: 100%;
   background-color: #FF8CBD;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -603,7 +603,7 @@
 .right-hand {
   width: 25vw;
   height: 28vw;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   flex-shrink: 0;
   position: relative;
 }
@@ -669,7 +669,7 @@
   width: 50vw;
   height: 28vw;
   background-color: #F7DE1C;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   flex-shrink: 0;
   background-image: url('../images/mouth closed.svg');
   background-repeat: no-repeat;
@@ -698,7 +698,7 @@
   height: 100%;
   flex-shrink: 0;
   width: 33.33vw;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -751,7 +751,7 @@
 .final-bar {
   width: 100%;
   height: 15vmin;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   box-sizing: border-box;
   font-family: 'AlumniSans', sans-serif;
   font-weight: 500;
@@ -801,7 +801,7 @@
 .final-large-box {
   width: 100%;
   height: 57vmin;
-  border: 5px solid black;
+  border: 0.65vw solid black;
   box-sizing: border-box;
   background-image: url('../images/hall.svg');
   background-repeat: no-repeat;
@@ -859,22 +859,50 @@
   transform: rotate(360deg);
 }
 
+/* АДАПТИВНОСТЬ: БРОВИ И ГЛАЗА */
 @media (max-width: 768px) {
-  /* --- БРОВИ: сделать шире, чтобы видеть 2 --- */
-  .brows-row-atom {
-    width: 48vw;
+/* УШИ — ПОКАЗЫВАЕМ ТОЛЬКО ОДНУ ЯЧЕЙКУ */
+  .ears-left,
+  .ears-right {
+    width: 29.1vw;        /* = ~223.5px */
+    height: 45.3vw;       /* = 348px (как глаз) */
+    overflow: hidden;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
   }
 
-  /* --- ГЛАЗА: оставить только левые, по центру --- */
-  .center-right-panel {
-    display: none;
-  }
-  .center-left-panel {
-    left: 50%;
-    transform: translateX(-50%);
+/* ЛЕВОЕ УХО */
+.ears-left {
+  left: 0;
+}
+
+/* ПРАВОЕ УХО */
+.ears-right {
+  right: 0;
+  transform: scaleX(-1) translateY(-50%); 
+}
+
+.center-right-panel { display: none; }
+
+.center-left-panel {
+    position: absolute;
+    top: 50%;
+    left: 29.1vw;
+    width: 41.8vw;        /* = 321px */
+    height: 45.3vw;       /* = 348px */
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 0;
   }
 
-  /* --- НОСЫ: сделать шире, чтобы видеть 3 --- */
+ body, html {
+    overflow-x: hidden;
+  }
+}
+
+/* АДАПТИВНОСТЬ: НОСЫ */
+@media (max-width: 768px) {
   .nose-atom {
     width: 32vw;
   }
@@ -882,13 +910,18 @@
     left: 50%;
     transform: translateX(-50%);
   }
+}
 
-  /* --- РОТ И РУКИ: рот во всю ширину, руки под ним --- */
+/* АДАПТИВНОСТЬ: РОТ И РУКИ */
+@media (max-width: 768px) {
   .mouth-container {
-    top: calc(2 * 25vw + 32vw); /* под носами */
+    top: calc(2 * 25vw + 32vw);
     width: 100%;
     left: 0;
-    height: 60vw; /* рот (30vw) + руки (30vw) */
+    height: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .mouth {
     width: 100%;
@@ -896,49 +929,162 @@
   }
   .left-hand,
   .right-hand {
-    width: 50%;
+    width: 100%;
     height: 30vw;
-    float: left;
-    box-sizing: border-box;
+    /* УБРАТЬ float */
   }
-  .mouth-container::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+}
 
- @media (max-width: 768px) {
+/* АДАПТИВНОСТЬ: ДЕТАЛИ (КРЫЛЬЯ, ХВОСТЫ, РОГА) */
+@media (max-width: 768px) {
   .details-row {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
   }
 
   .wings,
   .tails,
   .horns {
-    width: 100% !important;
-    height: 40vw !important; /* ← увеличил высоту */
-    border: 5px solid black;
+    width: 100%;
+    height: 40vw;
+    border: 0.65vw solid black;
     background-repeat: no-repeat;
-    background-size: contain; /* ← оставь как есть, чтобы фото не искажалось */
+    background-size: contain;
     background-position: center;
     transition: all 0.3s ease;
-    margin: 0 !important;
-    box-sizing: border-box !important;
+    box-sizing: border-box;
   }
 
-  /* Анимации остаются */
-  .wings:hover {
-    transform: scale(1.1);
-  }
-  .tails:hover {
-    transform: scale(1.1);
-  }
+  .wings:hover,
+  .tails:hover,
   .horns:hover {
     transform: scale(1.1);
   }
 }
+@media (max-width: 320px) {
+   .face-layer {
+    width: 100vw;
+    height: 636.875vw;
+  }
+  }
+@media (max-width: 320px) {
+ 
+  /* --- ВНЕШНИЙ КОНТЕЙНЕР: видимая область = 1 ячейка --- */
+  .brows-row {
+    width: 100vw;          /* = 320px */
+    height: 41.875vw;      /* = 134px */
+    overflow: hidden;      /* ← обрезает всё, что вне 320px */
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* --- ВНУТРЕННИЙ РЯД: должен быть шире --- */
+  .brows-strip {
+    display: flex;
+    flex-direction: row;
+    width: auto;           /* ← не ограничивать */
+    height: 100%;
+    /* НЕ скрывать overflow здесь! */
+  }
+
+  /* --- КАЖДАЯ ЯЧЕЙКА БРОВИ --- */
+  .brows-strip .brows-row-atom {
+    width: 100vw;          /* = 320px */
+    height: 100%;          /* = 134px */
+    flex-shrink: 0;        /* ← ОБЯЗАТЕЛЬНО: не сжимать */
+    /* твои background-color и изображения */
+  }
+
+  .ears-right,
+  .center-right-panel {
+    display: none;
+  }
+
+  /* УШИ — левая половина */
+  .ears-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50vw;
+    height: 45vw;         /* = ~144px */
+    overflow: hidden;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  /* ГЛАЗА — правая половина */
+  .center-left-panel {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 50vw;
+    height: 45vw;
+    overflow: hidden;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  /* --- КОНТЕЙНЕР РТА И РУК: отключаем абсолют и делаем блочным --- */
+  .mouth-container {
+    position: static;     /* ← выходим из absolute */
+    top: auto;
+    left: 0;
+    width: 100vw;
+    height: auto;         /* ← высота определяется содержимым */
+    z-index: auto;
+    display: block;       /* ← отключаем flex */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* --- РОТ: на всю ширину, высота = 194px → 60.625vw --- */
+  .mouth {
+    width: 100vw;
+    height: 60.625vw;     /* = 194px */
+    border: 0.65vw solid black;
+    flex-shrink: 0;
+    background-color: #F7DE1C;
+    background-image: url('../images/mouth closed.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: background-image 0.3s ease;
+    /* Убедимся, что это блок */
+    display: block;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* --- ЛЕВАЯ РУКА: на всю ширину, под ртом --- */
+  .left-hand {
+    position: static;     /* ← выходим из relative (если мешает) */
+    width: 100vw;
+    height: 120.3125vw;   /* = 385px */
+    border: 0.65vw solid black;
+    display: block;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* --- ПРАВАЯ РУКА: СКРЫТЬ --- */
+  .right-hand {
+    display: none;
+  }
+
+  /* --- ВНУТРЕННИЕ СЛОИ РУКИ: адаптируем под новую высоту --- */
+  .left-hand .hand-layer {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  body, html {
+    overflow-x: hidden;
+  }
+  
 }
