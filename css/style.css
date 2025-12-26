@@ -20,6 +20,7 @@
 
 /* СИНИЙ ПРЯМОУГОЛЬНИК С ЛОГО */
 .top-bar {
+  position: relative;
   width: 100%;
   height: 25vw;
   background-color: #2B50AA;
@@ -35,6 +36,53 @@
   height: 100%;
   object-fit: contain;
   padding: 3vw;
+}
+
+/* Декоративные звёзды */
+.deco-star {
+  position: absolute;
+  z-index: 1;
+}
+
+/* === ЛЕВЫЕ ЗВЁЗДЫ === */
+.left-top     { top: 10%;  left: 5%;  width: 7vw; height: 7vw; }
+.left-upper   { top: 25%;  left: 8%;  width: 4vw; height: 4vw; }
+.left-center  { top: 45%;  left: 6%;  width: 8vw; height: 8vw; }
+.left-bottom  { top: 70%;  left: 9%;  width: 5vw; height: 5vw; }
+
+/* === ПРАВЫЕ ЗВЁЗДЫ === */
+.right-top     { top: 10%;  right: 5%;  width: 7vw; height: 7vw; }
+.right-upper   { top: 25%;  right: 8%;  width: 4vw; height: 4vw; }
+.right-center  { top: 45%;  right: 6%;  width: 8vw; height: 8vw; }
+.right-bottom  { top: 70%;  right: 9%;  width: 5vw; height: 5vw; }
+
+/* === АНИМАЦИИ === */
+
+/* АНИМАЦИИ — полное исчезновение */
+@keyframes bigStarBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes littleStarBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Применение к большим звёздам */
+.left-top,
+.left-center,
+.right-top,
+.right-center {
+  animation: bigStarBlink 4s ease-in-out infinite;
+}
+
+/* Применение к маленьким звёздам */
+.left-upper,
+.left-bottom,
+.right-upper,
+.right-bottom {
+  animation: littleStarBlink 4s ease-in-out infinite;
 }
 
 /* ГОЛУБОЙ ПРЯМОУГОЛЬНИК С ТЕКСТОМ */
@@ -965,39 +1013,31 @@
     transform: scale(1.1);
   }
 }
-@media (max-width: 320px) {
-   .face-layer {
-    width: 100vw;
-    height: 636.875vw;
-  }
-  }
+
+
 @media (max-width: 320px) {
  
-  /* --- ВНЕШНИЙ КОНТЕЙНЕР: видимая область = 1 ячейка --- */
+  /* --- БРОВИ --- */
   .brows-row {
-    width: 100vw;          /* = 320px */
-    height: 41.875vw;      /* = 134px */
-    overflow: hidden;      /* ← обрезает всё, что вне 320px */
+    width: 100vw;
+    height: 41.875vw;
+    overflow: hidden;
     position: relative;
     margin: 0;
     padding: 0;
   }
 
-  /* --- ВНУТРЕННИЙ РЯД: должен быть шире --- */
   .brows-strip {
     display: flex;
     flex-direction: row;
-    width: auto;           /* ← не ограничивать */
+    width: auto;
     height: 100%;
-    /* НЕ скрывать overflow здесь! */
   }
 
-  /* --- КАЖДАЯ ЯЧЕЙКА БРОВИ --- */
   .brows-strip .brows-row-atom {
-    width: 100vw;          /* = 320px */
-    height: 100%;          /* = 134px */
-    flex-shrink: 0;        /* ← ОБЯЗАТЕЛЬНО: не сжимать */
-    /* твои background-color и изображения */
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0; 
   }
 
   .ears-right,
@@ -1005,19 +1045,19 @@
     display: none;
   }
 
-  /* УШИ — левая половина */
+  /* --- ЛЕВЫЕ УШИ --- */
   .ears-left {
     position: absolute;
     top: 50%;
     left: 0;
     width: 50vw;
-    height: 45vw;         /* = ~144px */
+    height: 45vw;
     overflow: hidden;
     transform: translateY(-50%);
     z-index: 0;
   }
 
-  /* ГЛАЗА — правая половина */
+  /* --- ЛЕВЫЕ ГЛАЗА --- */
   .center-left-panel {
     position: absolute;
     top: 50%;
@@ -1029,23 +1069,23 @@
     z-index: 0;
   }
 
-  /* --- КОНТЕЙНЕР РТА И РУК: отключаем абсолют и делаем блочным --- */
+  /* --- РОТ И РУКИ --- */
   .mouth-container {
-    position: static;     /* ← выходим из absolute */
+    position: static;
     top: auto;
     left: 0;
     width: 100vw;
-    height: auto;         /* ← высота определяется содержимым */
+    height: auto;
     z-index: auto;
-    display: block;       /* ← отключаем flex */
+    display: block;
     margin: 0;
     padding: 0;
   }
 
-  /* --- РОТ: на всю ширину, высота = 194px → 60.625vw --- */
+  /* --- РОТ --- */
   .mouth {
     width: 100vw;
-    height: 60.625vw;     /* = 194px */
+    height: 60.625vw;
     border: 0.65vw solid black;
     flex-shrink: 0;
     background-color: #F7DE1C;
@@ -1054,34 +1094,26 @@
     background-size: contain;
     background-position: center;
     transition: background-image 0.3s ease;
-    /* Убедимся, что это блок */
     display: block;
     margin: 0;
     box-sizing: border-box;
   }
 
-  /* --- ЛЕВАЯ РУКА: на всю ширину, под ртом --- */
+  /* --- ЛЕВАЯ РУКА --- */
   .left-hand {
-    position: static;     /* ← выходим из relative (если мешает) */
+    position: static;
     width: 100vw;
-    height: 120.3125vw;   /* = 385px */
+    height: 120.3125vw;
     border: 0.65vw solid black;
     display: block;
     margin: 0;
     box-sizing: border-box;
   }
 
-  /* --- ПРАВАЯ РУКА: СКРЫТЬ --- */
+  /* --- ПРАВАЯ РУКА --- */
   .right-hand {
     display: none;
   }
-
-  /* --- ВНУТРЕННИЕ СЛОИ РУКИ: адаптируем под новую высоту --- */
-  .left-hand .hand-layer {
-    width: 100%;
-    height: 100%;
-  }
-
 
   body, html {
     overflow-x: hidden;
