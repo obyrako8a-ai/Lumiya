@@ -48,7 +48,6 @@
   100% { transform: translateX(0); }
 }
 
-/* Зеленый прямоугольник с бегущим текстом */
 .bottom-bar {
   position: relative;
   width: 100vw;
@@ -75,7 +74,7 @@
   color: white;
   line-height: 1;
   white-space: nowrap;
-  padding: .0em .20em; /* определяет расстояние между двумя записями */
+  padding: .0em .20em;
 }
 
 /* БРОВИ */
@@ -167,7 +166,7 @@
   overflow: hidden;
 }
 
-/* === ЛЕВЫЕ УШИ === */
+/* ЛЕВЫЕ УШИ */
 @keyframes scroll_Up {
   0% { transform: translateY(0); }
   100% { transform: translateY(-200vh); }
@@ -225,7 +224,7 @@
   background-image: url('../images/ear_yellow_big.svg');
 }
 
-/* Правые УШИ */
+/* ПРАВЫЕ УШИ */
 .ears-right {
   position: absolute;
   top: 0;
@@ -249,8 +248,8 @@
 
 /* ГЛАЗА СЛЕВА */
 @keyframes scrollEyesDown {
-  0% { transform: translateY(-200vh); } /* ← начинаем с дубликатов */
-  100% { transform: translateY(0); }     /* ← уезжаем вниз */
+  0% { transform: translateY(-200vh); }
+  100% { transform: translateY(0); }
 }
 
 .center-left-panel {
@@ -396,7 +395,7 @@
   display: flex;
 }
 
-/* --- ОБЩИЙ КОНТЕЙНЕР РУКИ --- */
+/* ОБЩИЙ КОНТЕЙНЕР РУКИ */
 .left-hand,
 .right-hand {
   width: 25vw;
@@ -410,7 +409,6 @@
   transform: scaleX(-1);
 }
 
-/* --- СЛОЙ СОСТОЯНИЯ --- */
 .hand-layer {
   position: absolute;
   top: 0;
@@ -445,7 +443,6 @@
   animation: showFrom6to9s 4s infinite;
 }
 
-/* АНИМАЦИИ */
 @keyframes hideAfter3s {
   0%, 33.33% { opacity: 1; }
   33.34%, 100% { opacity: 0; }
@@ -503,7 +500,7 @@
   transition: all 0.3s ease;
 }
 
-/* === КРЫЛЬЯ === */
+/*  КРЫЛЬЯ */
 .wings {
   background-color: #F7DE1C;
   background-image: url('../images/wing_pink.svg');
@@ -515,7 +512,7 @@
   transform: scale(1.1);
 }
 
-/* === ХВОСТЫ === */
+/* ХВОСТЫ  */
 .tails {
   left: 44vw;
   background-color: #01B37F;
@@ -528,7 +525,7 @@
   transform: scale(1.1);
 }
 
-/* === РОГА === */
+/* РОГА */
 .horns {
   left: 89vw;
   background-color: #7A59A4;
@@ -541,7 +538,6 @@
   transform: scale(1.1);
 }
 /* ПОСЛЕДНИЙ БЛОК */
-/* ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ БЛОКОВ С ТЕКСТОМ */
 .final-bar {
   width: 100vw;
   height: 15vmin;
@@ -603,7 +599,7 @@
   background-position: center;
   position: relative;
 }
-/* === КОНТЕЙНЕР ДЛЯ ФОТО === */
+/* КОНТЕЙНЕР ДЛЯ ФОТО */
 .face-slideshow {
   position: absolute;
   top: 50%;
@@ -614,7 +610,7 @@
   z-index: 2;
 }
 
-/* === СТИЛЬ ОДНОГО ФОТО === */
+/* СТИЛЬ ОДНОГО ФОТО */
 .face {
   position: absolute;
   top: 0;
@@ -628,7 +624,7 @@
   transition: transform 0.3s ease;
 }
 
-/* === ФОТО ПО НОМЕРАМ === */
+/* ФОТО ПО НОМЕРАМ */
 .face1 { background-image: url('../images/face_1.svg'); }
 .face2 { background-image: url('../images/face_2.svg'); }
 .face3 { background-image: url('../images/face_3.svg'); }
@@ -636,7 +632,6 @@
 .face5 { background-image: url('../images/face_5.svg'); }
 .face6 { background-image: url('../images/face_6.svg'); }
 
-/* === АНИМАЦИЯ СМЕНЫ === */
 .face1 { animation: showFace 6s linear infinite; }
 .face2 { animation: showFace 6s linear infinite; animation-delay: -1s; }
 .face3 { animation: showFace 6s linear infinite; animation-delay: -2s; }
@@ -648,7 +643,7 @@
   0%, 16.66% { opacity: 1; }
   16.67%, 100% { opacity: 0; }
 }
-/* === ПОВОРОТ ПРИ НАВЕДЕНИИ === */
+
 .final-large-box:hover .face {
   transform: rotate(360deg);
 }
