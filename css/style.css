@@ -1103,9 +1103,5 @@
   .right-hand {
     display: none;
   }
-
-  body, html {
-    overflow-x: hidden;
-  }
   
 }
