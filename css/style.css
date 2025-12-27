@@ -10,7 +10,7 @@
   font-style: normal;
   font-display: swap;
 }
-/* ВЕРХНИЙ БОКС */
+/* --- ВЕРХНИЙ БОКС --- */
 .top-ui-layer {
   width: 100vw;
   display: flex;
@@ -18,7 +18,7 @@
   z-index: 100;
 }
 
-/* СИНИЙ ПРЯМОУГОЛЬНИК С ЛОГО */
+/* --- СИНИЙ ПРЯМОУГОЛЬНИК С ЛОГО --- */
 .top-bar {
   position: relative;
   width: 100%;
@@ -38,27 +38,22 @@
   padding: 3vw;
 }
 
-/* Декоративные звёзды */
+/* --- ЗВЕЗДЫ --- */
 .deco-star {
   position: absolute;
   z-index: 1;
 }
 
-/* === ЛЕВЫЕ ЗВЁЗДЫ === */
 .left-top     { top: 10%;  left: 5%;  width: 7vw; height: 7vw; }
 .left-upper   { top: 25%;  left: 8%;  width: 4vw; height: 4vw; }
 .left-center  { top: 45%;  left: 6%;  width: 8vw; height: 8vw; }
 .left-bottom  { top: 70%;  left: 9%;  width: 5vw; height: 5vw; }
 
-/* === ПРАВЫЕ ЗВЁЗДЫ === */
 .right-top     { top: 10%;  right: 5%;  width: 7vw; height: 7vw; }
 .right-upper   { top: 25%;  right: 8%;  width: 4vw; height: 4vw; }
 .right-center  { top: 45%;  right: 6%;  width: 8vw; height: 8vw; }
 .right-bottom  { top: 70%;  right: 9%;  width: 5vw; height: 5vw; }
 
-/* === АНИМАЦИИ === */
-
-/* АНИМАЦИИ — полное исчезновение */
 @keyframes bigStarBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -69,7 +64,6 @@
   50% { opacity: 1; }
 }
 
-/* Применение к большим звёздам */
 .left-top,
 .left-center,
 .right-top,
@@ -77,7 +71,6 @@
   animation: bigStarBlink 4s ease-in-out infinite;
 }
 
-/* Применение к маленьким звёздам */
 .left-upper,
 .left-bottom,
 .right-upper,
@@ -85,7 +78,7 @@
   animation: littleStarBlink 4s ease-in-out infinite;
 }
 
-/* ГОЛУБОЙ ПРЯМОУГОЛЬНИК С ТЕКСТОМ */
+/* --- ГОЛУБОЙ ПРЯМОУГОЛЬНИК С ТЕКСТОМ --- */
 .bottom-bar {
   width: 100%;
   height: 15vw;
@@ -96,7 +89,6 @@
   position: relative;
 }
 
-/* ТЕКСТ */
 .bottom-text {
   position: absolute;
   top: 50%;
@@ -111,7 +103,6 @@
   animation: scrollLeftToRight 8s linear infinite;
 }
 
-/* АНИМАЦИЯ */
 @keyframes scrollLeftToRight {
   0% {
     transform: translateX(100vw) translateY(-50%);
@@ -120,7 +111,7 @@
     transform: translateX(-100%) translateY(-50%);
   }
 }
-/* БОКС ДЛЯ ВСЕГО ЛИЦА */
+/* --- БОКС ДЛЯ ВСЕГО ЛИЦА --- */
 .face-layer {
   width: 100vw;
   height: calc(2 * 25vw + 25vw + 28vw);
@@ -128,7 +119,7 @@
   z-index: 10;
   overflow: hidden;
 }
-/* БРОВИ */
+/* --- БРОВИ --- */
 .brows-row {
   position: absolute;
   top: 0;
@@ -244,7 +235,8 @@
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
-/* --- ОБЩИЕ СТИЛИ УХА --- */
+
+/* --- ЛЕВЫЕ УШИ --- */
 .ear {
   width: 100%;
   height: 25vw;
@@ -255,7 +247,6 @@
   background-position: center;
 }
 
-/* === ЛЕВЫЕ УШИ === */
 .ears-left {
   position: absolute;
   top: 0;
@@ -272,7 +263,6 @@
   animation-play-state: paused;
 }
 
-/* Стили по nth-of-type для левых ушей */
 .ears-left .ear:nth-of-type(1),
 .ears-left .ear:nth-of-type(7) {
   background-color: #05C1F1;
@@ -309,7 +299,7 @@
   background-image: url('../images/yellow\ big\ ear.svg');
 }
 
-/* УШИ СПРАВА */
+/* --- УШИ СПРАВА --- */
 .ears-right {
   position: absolute;
   top: 0;
@@ -325,7 +315,7 @@
 .ears-right:hover {
   animation-play-state: paused;
 }
-/* === АНИМАЦИЯ === */
+
 .ears-left, .ears-right {
   position: absolute;
   top: 0;
@@ -352,7 +342,7 @@
 
 @keyframes scrollUp {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-150vw); } /* 6 ушей × 25vw */
+  100% { transform: translateY(-150vw); }
 }
 .ears-right .ear {
   width: 100%;
@@ -393,7 +383,7 @@
   background-color: #7A59A4;
   background-image: url('../images/yellow big ear.svg');
 }
-/* ГЛАЗА СЛЕВА */
+/* --- ГЛАЗА СЛЕВА --- */
 .center-left-panel {
   position: absolute;
   top: 0;
@@ -456,7 +446,7 @@
   background-size: contain;
   background-position: center;
 }
-/* ГЛАЗА СПРАВА */
+/* --- ГЛАЗА СПРАВА --- */
 .center-right-panel {
   position: absolute;
   top: 0;
@@ -530,10 +520,9 @@
   animation-play-state: paused;
 }
 
-/* АНИМАЦИЯ ВНИЗ (противоположно ушам) */
 @keyframes scrollEyes {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-150vw); } /* ← 6 глаз × 25vw */
+  100% { transform: translateY(-150vw); }
 }
 .center-left-panel,
 .center-right-panel {
@@ -548,11 +537,11 @@
 }
 
 @keyframes scrollEyesDown {
-  0% { transform: translateY(-150vw); } /* ← начинаем с дубликатов */
-  100% { transform: translateY(0); }     /* ← уезжаем вниз */
+  0% { transform: translateY(-150vw); }
+  100% { transform: translateY(0); }
 }
 
-/* БЛОК С НОСАМИ */
+/* --- НОСЫ --- */
 .noses-row {
   position: absolute;
   top: calc(2 * 25vw);
@@ -623,7 +612,7 @@
   background-position: center;
 }
 .noses-row {
-  overflow: hidden; /* ← обрезаем то, что выходит */
+  overflow: hidden;
   animation: scrollNoses 8s linear infinite;
 }
 
@@ -633,9 +622,9 @@
 
 @keyframes scrollNoses {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* ← 14 носов = 2×, сдвиг на 1 набор */
+  100% { transform: translateX(-50%); }
 }
-/* РОТ И РУКИ */
+/* --- РОТ И РУКИ --- */
 .mouth-container {
   position: absolute;
   top: calc(2 * 25vw + 25vw);
@@ -646,7 +635,6 @@
   display: flex;
 }
 
-/* --- ОБЩИЙ КОНТЕЙНЕР РУКИ --- */
 .left-hand,
 .right-hand {
   width: 25vw;
@@ -660,7 +648,6 @@
   transform: scaleX(-1);
 }
 
-/* --- СЛОЙ СОСТОЯНИЯ --- */
 .hand-layer {
   position: absolute;
   top: 0;
@@ -695,7 +682,6 @@
   animation: showFrom6to9s 4s infinite;
 }
 
-/* АНИМАЦИИ */
 @keyframes hideAfter3s {
   0%, 33.33% { opacity: 1; }
   33.34%, 100% { opacity: 0; }
@@ -712,7 +698,7 @@
   66.67%, 100% { opacity: 1; }
 }
 
-/* РОТ */
+/* --- РОТ --- */
 .mouth {
   width: 50vw;
   height: 28vw;
@@ -730,7 +716,7 @@
   background-image: url('../images/mouth open.svg');
 }
 
-/* БОКС С ДЕТАЛЯМИ */
+/* --- БОКС С ДЕТАЛЯМИ --- */
 .details-row {
   width: 100vw;
   height: 37.5vmin;
@@ -739,7 +725,6 @@
   position: relative;
 }
 
-/* СТИЛИ ДЛЯ ЯЧЕЕК */
 .wings,
 .tails,
 .horns {
@@ -753,7 +738,7 @@
   transition: all 0.3s ease;
 }
 
-/* === КРЫЛЬЯ === */
+/* --- КРЫЛЬЯ --- */
 .wings {
   background-color: #F7DE1C;
   background-image: url('../images/pink wing.svg');
@@ -765,7 +750,7 @@
   transform: scale(1.1);
 }
 
-/* === ХВОСТЫ === */
+/* --- ХВОСТЫ --- */
 .tails {
   background-color: #01B37F;
   background-image: url('../images/red tail.svg');
@@ -777,7 +762,7 @@
   transform: scale(1.1);
 }
 
-/* === РОГА === */
+/* --- РОГА --- */
 .horns {
   background-color: #7A59A4;
   background-image: url('../images/yellow horns.svg');
@@ -788,14 +773,15 @@
   background-image: url('../images/purple horns.svg');
   transform: scale(1.1);
 }
-/* ПОСЛЕДНИЙ БЛОК */
+
+/* --- ПОСЛЕДНИЙ БЛОК --- */
 .final-section {
   width: 100vw;
   display: flex;
   flex-direction: column;
 }
 
-/* ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ БЛОКОВ С ТЕКСТОМ */
+/* --- ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ БЛОКОВ С ТЕКСТОМ --- */
 .final-bar {
   width: 100%;
   height: 15vmin;
@@ -845,7 +831,7 @@
   100% { transform: translateX(0); }
 }
 
-/* ПРОСТРАНСТВО */
+/* --- ПРОСТРАНСТВО --- */
 .final-large-box {
   width: 100%;
   height: 57vmin;
@@ -855,20 +841,20 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative; /* ← ОБЯЗАТЕЛЬНО! */
+  position: relative;
 }
-/* === КОНТЕЙНЕР ДЛЯ ФОТО === */
+
+/* --- ЛИЦА --- */
 .face-slideshow {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30vmin; /* ← подбери размер */
+  width: 30vmin;
   height: 30vmin;
   z-index: 2;
 }
 
-/* === СТИЛЬ ОДНОГО ФОТО === */
 .face {
   position: absolute;
   top: 0;
@@ -882,7 +868,6 @@
   transition: transform 0.3s ease;
 }
 
-/* === ФОТО ПО НОМЕРАМ === */
 .face1 { background-image: url('../images/face\ 1.svg'); }
 .face2 { background-image: url('../images/face\ 2.svg'); }
 .face3 { background-image: url('../images/face\ 3.svg'); }
@@ -890,7 +875,6 @@
 .face5 { background-image: url('../images/face\ 5.svg'); }
 .face6 { background-image: url('../images/face\ 6.svg'); }
 
-/* === АНИМАЦИЯ СМЕНЫ === */
 .face1 { animation: showFace 6s linear infinite; }
 .face2 { animation: showFace 6s linear infinite; animation-delay: -1s; }
 .face3 { animation: showFace 6s linear infinite; animation-delay: -2s; }
@@ -902,43 +886,44 @@
   0%, 16.66% { opacity: 1; }
   16.67%, 100% { opacity: 0; }
 }
-/* === ПОВОРОТ ПРИ НАВЕДЕНИИ === */
+
 .final-large-box:hover .face {
   transform: rotate(360deg);
 }
 
-/* АДАПТИВНОСТЬ: БРОВИ И ГЛАЗА */
 @media (max-width: 768px) {
-/* УШИ — ПОКАЗЫВАЕМ ТОЛЬКО ОДНУ ЯЧЕЙКУ */
+/* --- УШИ --- */
   .ears-left,
   .ears-right {
-    width: 29.1vw;        /* = ~223.5px */
-    height: 45.3vw;       /* = 348px (как глаз) */
+    width: 29.1vw;
+    height: 45.3vw;
     overflow: hidden;
     top: 50%;
     transform: translateY(-50%);
     z-index: 0;
   }
 
-/* ЛЕВОЕ УХО */
+/* --- ЛЕВОЕ УХО --- */
 .ears-left {
   left: 0;
 }
 
-/* ПРАВОЕ УХО */
+/* --- ПРАВОЕ УХО --- */
 .ears-right {
   right: 0;
   transform: scaleX(-1) translateY(-50%); 
 }
 
+/* --- ПРАВЫЕ ГЛАЗА --- */
 .center-right-panel { display: none; }
 
+/* --- ЛЕВЫЕ ГЛАЗА --- */
 .center-left-panel {
     position: absolute;
     top: 50%;
     left: 29.1vw;
-    width: 41.8vw;        /* = 321px */
-    height: 45.3vw;       /* = 348px */
+    width: 41.8vw;
+    height: 45.3vw;
     transform: translateY(-50%);
     overflow: hidden;
     z-index: 0;
@@ -949,8 +934,8 @@
   }
 }
 
-/* АДАПТИВНОСТЬ: НОСЫ */
 @media (max-width: 768px) {
+  /* --- НОСЫ --- */
   .nose-atom {
     width: 32vw;
   }
@@ -960,8 +945,8 @@
   }
 }
 
-/* АДАПТИВНОСТЬ: РОТ И РУКИ */
 @media (max-width: 768px) {
+  /* --- РОТ И РУКИ --- */
   .mouth-container {
     top: calc(2 * 25vw + 32vw);
     width: 100%;
@@ -979,12 +964,11 @@
   .right-hand {
     width: 100%;
     height: 30vw;
-    /* УБРАТЬ float */
   }
 }
 
-/* АДАПТИВНОСТЬ: ДЕТАЛИ (КРЫЛЬЯ, ХВОСТЫ, РОГА) */
 @media (max-width: 768px) {
+  /* --- БОКС С ДЕТАЛЯМИ --- */
   .details-row {
     display: flex;
     flex-direction: column;
@@ -1013,8 +997,13 @@
     transform: scale(1.1);
   }
 }
-
-
+@media (max-width: 320px) {
+  /* --- БОКС ДЛЯ ВСЕГО ЛИЦА --- */
+   .face-layer {
+    width: 100vw;
+    height: 636.875vw;
+  }
+  }
 @media (max-width: 320px) {
  
   /* --- БРОВИ --- */
