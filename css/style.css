@@ -10,7 +10,7 @@
   font-style: normal;
   font-display: swap;
 }
-/* --- ВЕРХНИЙ БОКС --- */
+/* ВЕРХНИЙ БОКС */
 .top-ui-layer {
   width: 100vw;
   display: flex;
@@ -18,13 +18,12 @@
   z-index: 100;
 }
 
-/* --- СИНИЙ ПРЯМОУГОЛЬНИК С ЛОГО --- */
+/* СИНИЙ ПРЯМОУГОЛЬНИК С ЛОГО */
 .top-bar {
-  position: relative;
-  width: 100%;
+  width: 100vw;
   height: 25vw;
   background-color: #2B50AA;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,93 +37,53 @@
   padding: 3vw;
 }
 
-/* --- ЗВЕЗДЫ --- */
-.deco-star {
-  position: absolute;
-  z-index: 1;
+/* АНИМАЦИЯ */
+@keyframes scroll_left {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-50%);}
 }
 
-.left-top     { top: 10%;  left: 5%;  width: 7vw; height: 7vw; }
-.left-upper   { top: 25%;  left: 8%;  width: 4vw; height: 4vw; }
-.left-center  { top: 45%;  left: 6%;  width: 8vw; height: 8vw; }
-.left-bottom  { top: 70%;  left: 9%;  width: 5vw; height: 5vw; }
-
-.right-top     { top: 10%;  right: 5%;  width: 7vw; height: 7vw; }
-.right-upper   { top: 25%;  right: 8%;  width: 4vw; height: 4vw; }
-.right-center  { top: 45%;  right: 6%;  width: 8vw; height: 8vw; }
-.right-bottom  { top: 70%;  right: 9%;  width: 5vw; height: 5vw; }
-
-@keyframes bigStarBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes scroll_right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-@keyframes littleStarBlink {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-}
-
-.left-top,
-.left-center,
-.right-top,
-.right-center {
-  animation: bigStarBlink 4s ease-in-out infinite;
-}
-
-.left-upper,
-.left-bottom,
-.right-upper,
-.right-bottom {
-  animation: littleStarBlink 4s ease-in-out infinite;
-}
-
-/* --- ГОЛУБОЙ ПРЯМОУГОЛЬНИК С ТЕКСТОМ --- */
+/* Зеленый прямоугольник с бегущим текстом */
 .bottom-bar {
-  width: 100%;
+  position: relative;
+  width: 100vw;
   height: 15vw;
   background-color: #01B37F;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.bar_in {
   position: relative;
+  top: -10%;
+  display: flex;
+  width: fit-content;
+  animation: scroll_left 16s linear infinite;
 }
 
 .bottom-text {
-  position: absolute;
-  top: 50%;
-  white-space: nowrap;
   box-sizing: border-box;
   font-family: 'AlumniSans', sans-serif;
   font-weight: 500;
   font-size: 15vw;
   color: white;
   line-height: 1;
-  transform: translateY(-50%);
-  animation: scrollLeftToRight 8s linear infinite;
+  white-space: nowrap;
+  padding: .0em .20em; /* определяет расстояние между двумя записями */
 }
 
-@keyframes scrollLeftToRight {
-  0% {
-    transform: translateX(100vw) translateY(-50%);
-  }
-  100% {
-    transform: translateX(-100%) translateY(-50%);
-  }
-}
-/* --- БОКС ДЛЯ ВСЕГО ЛИЦА --- */
-.face-layer {
-  width: 100vw;
-  height: calc(2 * 25vw + 25vw + 28vw);
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
-}
-/* --- БРОВИ --- */
+/* БРОВИ */
 .brows-row {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 15vmin;
   display: flex;
   align-items: center;
@@ -135,116 +94,83 @@
   display: flex;
   height: 100%;
   overflow: hidden;
-  animation: scrollBrows 8s linear infinite;
+  animation: scroll_right 8s linear infinite;
   flex-wrap: nowrap;
   min-width: fit-content;
-}
-
-.brows-row-atom {
-  width: 25vw;
-  height: 100%;
-  border: 0.65vw solid black;
-  flex-shrink: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.brows-row-atom:nth-of-type(1) {
-    background-color: #05C1F1;
-    background-image: url('../images/blue eyebrow up.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-row-atom:nth-of-type(2) {
-    background-color: #05C1F1;
-    background-image: url('../images/blue\ eyebrow\ down.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-row-atom:nth-of-type(3) {
-    background-color: #FF4431;
-    background-image: url('../images/red\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-row-atom:nth-of-type(4) {
-    background-color: #FF4431;
-    background-image: url('../images/red\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    transform: scaleX(-1);
-}
-.brows-row-atom:nth-of-type(5) {
-    background-color: #F7DE1C;
-    background-image: url('../images/yellow\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-row-atom:nth-of-type(6) {
-    background-color: #F7DE1C;
-    background-image: url('../images/yellow\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    transform: scaleX(-1);
-}
-.brows-row-atom:nth-of-type(7) {
-    background-color: #7A59A4;
-    background-image: url('../images/purple\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-row-atom:nth-of-type(8) {
-    background-color: #7A59A4;
-    background-image: url('../images/purple\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-row-atom:nth-of-type(9) {
-    background-color: #01B37F;
-    background-image: url('../images/green\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-row-atom:nth-of-type(10) {
-    background-color: #01B37F;
-    background-image: url('../images/green\ eyebrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-.brows-strip {
-  overflow: hidden;
-  animation: scrollBrows 8s linear infinite;
 }
 
 .brows-strip:hover {
   animation-play-state: paused;
 }
 
-@keyframes scrollBrows {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-/* --- ЛЕВЫЕ УШИ --- */
-.ear {
-  width: 100%;
-  height: 25vw;
-  border: 0.65vw solid black;
+.brow {
+  width: 25vw;
+  height: 15vmin;
+  border: 5px solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.brow.el-1 {
+    background-color: #05C1F1;
+    background-image: url('../images/eyebrow_blue_up.svg');
+}
+.brow.el-2 {
+    background-color: #05C1F1;
+    background-image: url('../images/eyebrow_blue_down.svg');
+}
+.brow.el-3 {
+    background-color: #FF4431;
+    background-image: url('../images/eyebrow_red.svg');
+}
+.brow.el-4 {
+    background-color: #FF4431;
+    background-image: url('../images/eyebrow_red.svg');
+    transform: scaleX(-1);
+}
+.brow.el-5 {
+    background-color: #F7DE1C;
+    background-image: url('../images/eyebrow_yellow.svg');
+}
+.brow.el-6 {
+    background-color: #F7DE1C;
+    background-image: url('../images/eyebrow_yellow.svg');
+    transform: scaleX(-1);
+}
+.brow.el-7 {
+    background-color: #7A59A4;
+    background-image: url('../images/eyebrow_purple.svg');
+}
+.brow.el-8 {
+    background-color: #7A59A4;
+    background-image: url('../images/eyebrow_purple.svg');
+    transform: scaleX(-1);
+}
+.brow.el-9 {
+    background-color: #01B37F;
+    background-image: url('../images/eyebrow_green.svg');
+}
+.brow.el-10 {
+    background-color: #01B37F;
+    background-image: url('../images/eyebrow_green.svg');
+    transform: scaleX(-1);
+}
+
+/* БОКС ДЛЯ ВСЕГО ЛИЦА */
+.face-layer {
+  width: 100vw;
+  height: 70vw;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* === ЛЕВЫЕ УШИ === */
+@keyframes scroll_Up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200vh); }
 }
 
 .ears-left {
@@ -252,283 +178,140 @@
   top: 0;
   left: 0;
   width: 25vw;
-  height: 100vh;
+  height: 400vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: scrollUp 8s linear infinite;
+  animation: scroll_Up 8s linear infinite;
+  box-sizing: border-box;
 }
 
 .ears-left:hover {
   animation-play-state: paused;
 }
 
-.ears-left .ear:nth-of-type(1),
-.ears-left .ear:nth-of-type(7) {
+.ear {
+  width: 100%;
+  height: 25vw;
+  border: 5px solid black;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.ear.el-1{
   background-color: #05C1F1;
-  background-image: url('../images/yellow\ ear.svg');
+  background-image: url('../images/ear_yellow.svg');
 }
-
-.ears-left .ear:nth-of-type(2),
-.ears-left .ear:nth-of-type(8) {
+.ear.el-2 {
   background-color: #FF4431;
-  background-image: url('../images/blue\ ear.svg');
+  background-image: url('../images/ear_blue.svg');
 }
-
-.ears-left .ear:nth-of-type(3),
-.ears-left .ear:nth-of-type(9) {
+.ear.el-3 {
   background-color: #F7DE1C;
-  background-image: url('../images/purple\ ear.svg');
+  background-image: url('../images/ear_purple.svg');
 }
-
-.ears-left .ear:nth-of-type(4),
-.ears-left .ear:nth-of-type(10) {
+.ear.el-4 {
   background-color: #01B37F;
-  background-image: url('../images/pink\ ear.svg');
+  background-image: url('../images/ear_pink.svg');
 }
-
-.ears-left .ear:nth-of-type(5),
-.ears-left .ear:nth-of-type(11) {
+.ear.el-5 {
   background-color: #FF8CBD;
-  background-image: url('../images/red\ ear.svg');
+  background-image: url('../images/ear_red.svg');
 }
-
-.ears-left .ear:nth-of-type(6),
-.ears-left .ear:nth-of-type(12) {
+.ear.el-6 {
   background-color: #7A59A4;
-  background-image: url('../images/yellow\ big\ ear.svg');
+  background-image: url('../images/ear_yellow_big.svg');
 }
 
-/* --- УШИ СПРАВА --- */
+/* Правые УШИ */
 .ears-right {
   position: absolute;
   top: 0;
   right: 0;
   width: 25vw;
-  height: 100vh;
+  height: 400vh;
   display: flex;
   flex-direction: column;
-  z-index: 1;
-  animation: scrollUp 5s linear infinite;
+  overflow: hidden;
+  animation: scroll_Up 8s linear infinite;
+  box-sizing: border-box;
 }
 
 .ears-right:hover {
   animation-play-state: paused;
 }
 
-.ears-left, .ears-right {
-  position: absolute;
-  top: 0;
-  width: 25vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  animation: scrollUp 8s linear infinite;
-}
-
-.ears-left:hover, .ears-right:hover {
-  animation-play-state: paused;
-}
-
-.ears-right {
-  right: 0;
-  z-index: 1;
-}
-
 .ears-right .ear {
   transform: scaleX(-1);
 }
 
-@keyframes scrollUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-150vw); }
-}
-.ears-right .ear {
-  width: 100%;
-  height: 25vw;
-  border: 0.65vw solid black;
-  flex-shrink: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  transform: scaleX(-1);
-}
-.ears-right .ear:nth-of-type(1) {
-  background-color: #05C1F1;
-  background-image: url('../images/yellow ear.svg');
+/* ГЛАЗА СЛЕВА */
+@keyframes scrollEyesDown {
+  0% { transform: translateY(-200vh); } /* ← начинаем с дубликатов */
+  100% { transform: translateY(0); }     /* ← уезжаем вниз */
 }
 
-.ears-right .ear:nth-of-type(2) {
-  background-color: #FF4431;
-  background-image: url('../images/blue ear.svg');
-}
-
-.ears-right .ear:nth-of-type(3) {
-  background-color: #F7DE1C;
-  background-image: url('../images/purple ear.svg');
-}
-
-.ears-right .ear:nth-of-type(4) {
-  background-color: #01B37F;
-  background-image: url('../images/pink ear.svg');
-}
-
-.ears-right .ear:nth-of-type(5) {
-  background-color: #FF8CBD;
-  background-image: url('../images/red ear.svg');
-}
-
-.ears-right .ear:nth-of-type(6) {
-  background-color: #7A59A4;
-  background-image: url('../images/yellow big ear.svg');
-}
-/* --- ГЛАЗА СЛЕВА --- */
 .center-left-panel {
   position: absolute;
   top: 0;
   left: 25vw;
   width: 25vw;
-  height: 100vh;
+  height: 400vh;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
-  z-index: 2;
+  overflow: hidden;
+  animation: scrollEyesDown 8s linear infinite;
 }
 
-.center-left-panel .panel-atom {
+.eye {
   width: 100%;
   height: 25vw;
-  border: 0.65vw solid black;
+  border: 5px solid #000000;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
-.center-left-panel .panel-atom:nth-of-type(1) {
+.eye.el-1 {
   background-color: #FF8CBD;
-  background-image: url('../images/pink\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/eye_pink.svg');
 }
-.center-left-panel .panel-atom:nth-of-type(2) {
+.eye.el-2 {
   background-color: #7A59A4;
-  background-image: url('../images/purple\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/eye_purple.svg');
 }
-.center-left-panel .panel-atom:nth-of-type(3) {
+.eye.el-3 {
   background-color: #FF4431;
-  background-image: url('../images/red\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/eye_red.svg');
 }
-.center-left-panel .panel-atom:nth-of-type(4) {
+.eye.el-4 {
   background-color: #F7DE1C;
-  background-image: url('../images/yellow\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/eye_yellow.svg');
 }
-.center-left-panel .panel-atom:nth-of-type(5) {
+.eye.el-5 {
   background-color: #01B37F;
-  background-image: url('../images/green\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/eye_green.svg');
 }
-.center-left-panel .panel-atom:nth-of-type(6) {
+.eye.el-6 {
   background-color: #05C1F1;
-  background-image: url('../images/blue\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/eye_blue.svg');
 }
-/* --- ГЛАЗА СПРАВА --- */
+
+/* ГЛАЗА СПРАВА */
 .center-right-panel {
   position: absolute;
   top: 0;
   left: 50vw;
   width: 25vw;
-  height: 100vh;
+  height: 400vh;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
-  z-index: 2;
-}
-.center-right-panel .panel-atom {
-  width: 100%;
-  height: 25vw;
-  border: 0.65vw solid black;
-  flex-shrink: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.center-right-panel .panel-atom:nth-of-type(1) {
-  background-color: #FF8CBD;
-  background-image: url('../images/pink\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.center-right-panel .panel-atom:nth-of-type(2) {
-  background-color: #7A59A4;
-  background-image: url('../images/purple\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.center-right-panel .panel-atom:nth-of-type(3) {
-  background-color: #FF4431;
-  background-image: url('../images/red\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.center-right-panel .panel-atom:nth-of-type(4) {
-  background-color: #F7DE1C;
-  background-image: url('../images/yellow\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.center-right-panel .panel-atom:nth-of-type(5) {
-  background-color: #01B37F;
-  background-image: url('../images/green\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.center-right-panel .panel-atom:nth-of-type(6) {
-  background-color: #05C1F1;
-  background-image: url('../images//blue\ eye.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-} 
-.center-left-panel,
-.center-right-panel {
-  animation: scrollEyes 8s linear infinite;
   overflow: hidden;
-  box-sizing: border-box;
-}
-
-.center-left-panel:hover,
-.center-right-panel:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollEyes {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-150vw); }
-}
-.center-left-panel,
-.center-right-panel {
   animation: scrollEyesDown 8s linear infinite;
-  overflow: hidden;
-  box-sizing: border-box;
 }
 
 .center-left-panel:hover,
@@ -536,110 +319,89 @@
   animation-play-state: paused;
 }
 
-@keyframes scrollEyesDown {
-  0% { transform: translateY(-150vw); }
-  100% { transform: translateY(0); }
+/* БЛОК С НОСАМИ */
+@keyframes scrollNoses {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-200vw);}
 }
 
-/* --- НОСЫ --- */
+.scroll-row {
+  position: relative;
+  width: 100vw;
+  height: 25vw;
+  overflow: hidden;
+}
+
 .noses-row {
   position: absolute;
-  top: calc(2 * 25vw);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
+  width: 400vw;
   height: 25vw;
-  z-index: 999;
+  display: flex;
+  box-sizing: border-box;
+  width: fit-content;
+  animation: scrollNoses 8s linear infinite;
 }
 
-.nose-atom {
+.nose {
   width: 28vw;
   height: 100%;
   background-color: #FF8CBD;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   flex-shrink: 0;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
-.nose-atom:nth-of-type(1) {
+.nose.el-1 {
   background-color: #FF4431;
-  background-image: url('../images/yellow\ nose.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/nose_yellow.svg');
 }
-.nose-atom:nth-of-type(2) {
+.nose.el-2 {
   background-color: #FF8CBD;
-  background-image: url('../images/red\ nose.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/nose_red.svg');
 }
-.nose-atom:nth-of-type(3) {
+.nose.el-3 {
   background-color: #01B37F;
-  background-image: url('../images/big\ pink\ nose.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/nose_pink_big.svg');
 }
-.nose-atom:nth-of-type(4) {
+.nose.el-4 {
   background-color: #F7DE1C;
-  background-image: url('../images/green\ nose.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/nose_green.svg');
 }
-.nose-atom:nth-of-type(5) {
+.nose.el-5 {
   background-color: #05C1F1;
-  background-image: url('../images/purple\ nose.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/nose_purple.svg');
 }
-.nose-atom:nth-of-type(6) {
+.nose.el-6 {
   background-color: #7A59A4;
-  background-image: url('../images/pink\ nose.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-image: url('../images/nose_pink.svg');
 }
-.nose-atom:nth-of-type(7) {
+.nose.el-7 {
   background-color: #FF4431;
-  background-image: url('../images/blue\ nose.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.noses-row {
-  overflow: hidden;
-  animation: scrollNoses 8s linear infinite;
+  background-image: url('../images/nose_blue.svg');
 }
 
 .noses-row:hover {
   animation-play-state: paused;
 }
 
-@keyframes scrollNoses {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-/* --- РОТ И РУКИ --- */
-.mouth-container {
+/* РОТ И РУКИ */
+.mouth-row {
   position: absolute;
-  top: calc(2 * 25vw + 25vw);
+  top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 30vw;
   z-index: 998;
   display: flex;
 }
 
+/* --- ОБЩИЙ КОНТЕЙНЕР РУКИ --- */
 .left-hand,
 .right-hand {
   width: 25vw;
   height: 28vw;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   flex-shrink: 0;
   position: relative;
 }
@@ -648,6 +410,7 @@
   transform: scaleX(-1);
 }
 
+/* --- СЛОЙ СОСТОЯНИЯ --- */
 .hand-layer {
   position: absolute;
   top: 0;
@@ -671,17 +434,18 @@
 .left-hand .hand-2,
 .right-hand .hand-2 {
   background-color: #F7DE1C;
-  background-image: url('../images/ogre\ paw.svg');
+  background-image: url('../images/paw_ogre.svg');
   animation: showFrom3to6s 4s infinite;
 }
 
 .left-hand .hand-3,
 .right-hand .hand-3 {
   background-color: #01B37F;
-  background-image: url('../images/cat\'s\ paw.svg');
+  background-image: url('../images/paw_cats.svg');
   animation: showFrom6to9s 4s infinite;
 }
 
+/* АНИМАЦИИ */
 @keyframes hideAfter3s {
   0%, 33.33% { opacity: 1; }
   33.34%, 100% { opacity: 0; }
@@ -698,14 +462,14 @@
   66.67%, 100% { opacity: 1; }
 }
 
-/* --- РОТ --- */
+/* РОТ */
 .mouth {
   width: 50vw;
   height: 28vw;
   background-color: #F7DE1C;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   flex-shrink: 0;
-  background-image: url('../images/mouth closed.svg');
+  background-image: url('../images/mouth_closed.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -713,10 +477,10 @@
 }
 
 .mouth:hover {
-  background-image: url('../images/mouth open.svg');
+  background-image: url('../images/mouth_open.svg');
 }
 
-/* --- БОКС С ДЕТАЛЯМИ --- */
+/* БОКС С ДЕТАЛЯМИ */
 .details-row {
   width: 100vw;
   height: 37.5vmin;
@@ -725,67 +489,63 @@
   position: relative;
 }
 
+/* СТИЛИ ДЛЯ ЯЧЕЕК */
 .wings,
 .tails,
 .horns {
   height: 100%;
   flex-shrink: 0;
   width: 33.33vw;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   transition: all 0.3s ease;
 }
 
-/* --- КРЫЛЬЯ --- */
+/* === КРЫЛЬЯ === */
 .wings {
   background-color: #F7DE1C;
-  background-image: url('../images/pink wing.svg');
+  background-image: url('../images/wing_pink.svg');
 }
 
 .wings:hover {
   background-color: #FF8CBD;
-  background-image: url('../images/yellow wing.svg');
+  background-image: url('../images/wing_yellow.svg');
   transform: scale(1.1);
 }
 
-/* --- ХВОСТЫ --- */
+/* === ХВОСТЫ === */
 .tails {
+  left: 44vw;
   background-color: #01B37F;
-  background-image: url('../images/red tail.svg');
+  background-image: url('../images/tail_red.svg');
 }
 
 .tails:hover {
   background-color: #FF4431;
-  background-image: url('../images/green tail.svg');
+  background-image: url('../images/tail_green.svg');
   transform: scale(1.1);
 }
 
-/* --- РОГА --- */
+/* === РОГА === */
 .horns {
+  left: 89vw;
   background-color: #7A59A4;
-  background-image: url('../images/yellow horns.svg');
+  background-image: url('../images/horns_yellow.svg');
 }
 
 .horns:hover {
   background-color: #F7DE1C;
-  background-image: url('../images/purple horns.svg');
+  background-image: url('../images/horns_purple.svg');
   transform: scale(1.1);
 }
-
-/* --- ПОСЛЕДНИЙ БЛОК --- */
-.final-section {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-}
-
-/* --- ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ БЛОКОВ С ТЕКСТОМ --- */
+/* ПОСЛЕДНИЙ БЛОК */
+/* ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ БЛОКОВ С ТЕКСТОМ */
 .final-bar {
-  width: 100%;
+  width: 100vw;
   height: 15vmin;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   box-sizing: border-box;
   font-family: 'AlumniSans', sans-serif;
   font-weight: 500;
@@ -831,11 +591,11 @@
   100% { transform: translateX(0); }
 }
 
-/* --- ПРОСТРАНСТВО --- */
+/* ПРОСТРАНСТВО */
 .final-large-box {
-  width: 100%;
+  width: 100vw;
   height: 57vmin;
-  border: 0.65vw solid black;
+  border: 5px solid black;
   box-sizing: border-box;
   background-image: url('../images/hall.svg');
   background-repeat: no-repeat;
@@ -843,8 +603,7 @@
   background-position: center;
   position: relative;
 }
-
-/* --- ЛИЦА --- */
+/* === КОНТЕЙНЕР ДЛЯ ФОТО === */
 .face-slideshow {
   position: absolute;
   top: 50%;
@@ -855,6 +614,7 @@
   z-index: 2;
 }
 
+/* === СТИЛЬ ОДНОГО ФОТО === */
 .face {
   position: absolute;
   top: 0;
@@ -868,13 +628,15 @@
   transition: transform 0.3s ease;
 }
 
-.face1 { background-image: url('../images/face\ 1.svg'); }
-.face2 { background-image: url('../images/face\ 2.svg'); }
-.face3 { background-image: url('../images/face\ 3.svg'); }
-.face4 { background-image: url('../images/face\ 4.svg'); }
-.face5 { background-image: url('../images/face\ 5.svg'); }
-.face6 { background-image: url('../images/face\ 6.svg'); }
+/* === ФОТО ПО НОМЕРАМ === */
+.face1 { background-image: url('../images/face_1.svg'); }
+.face2 { background-image: url('../images/face_2.svg'); }
+.face3 { background-image: url('../images/face_3.svg'); }
+.face4 { background-image: url('../images/face_4.svg'); }
+.face5 { background-image: url('../images/face_5.svg'); }
+.face6 { background-image: url('../images/face_6.svg'); }
 
+/* === АНИМАЦИЯ СМЕНЫ === */
 .face1 { animation: showFace 6s linear infinite; }
 .face2 { animation: showFace 6s linear infinite; animation-delay: -1s; }
 .face3 { animation: showFace 6s linear infinite; animation-delay: -2s; }
@@ -886,222 +648,7 @@
   0%, 16.66% { opacity: 1; }
   16.67%, 100% { opacity: 0; }
 }
-
+/* === ПОВОРОТ ПРИ НАВЕДЕНИИ === */
 .final-large-box:hover .face {
   transform: rotate(360deg);
-}
-
-@media (max-width: 768px) {
-/* --- УШИ --- */
-  .ears-left,
-  .ears-right {
-    width: 29.1vw;
-    height: 45.3vw;
-    overflow: hidden;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 0;
-  }
-
-/* --- ЛЕВОЕ УХО --- */
-.ears-left {
-  left: 0;
-}
-
-/* --- ПРАВОЕ УХО --- */
-.ears-right {
-  right: 0;
-  transform: scaleX(-1) translateY(-50%); 
-}
-
-/* --- ПРАВЫЕ ГЛАЗА --- */
-.center-right-panel { display: none; }
-
-/* --- ЛЕВЫЕ ГЛАЗА --- */
-.center-left-panel {
-    position: absolute;
-    top: 50%;
-    left: 29.1vw;
-    width: 41.8vw;
-    height: 45.3vw;
-    transform: translateY(-50%);
-    overflow: hidden;
-    z-index: 0;
-  }
-
- body, html {
-    overflow-x: hidden;
-  }
-}
-
-@media (max-width: 768px) {
-  /* --- НОСЫ --- */
-  .nose-atom {
-    width: 32vw;
-  }
-  .noses-row {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 768px) {
-  /* --- РОТ И РУКИ --- */
-  .mouth-container {
-    top: calc(2 * 25vw + 32vw);
-    width: 100%;
-    left: 0;
-    height: 60vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .mouth {
-    width: 100%;
-    height: 30vw;
-  }
-  .left-hand,
-  .right-hand {
-    width: 100%;
-    height: 30vw;
-  }
-}
-
-@media (max-width: 768px) {
-  /* --- БОКС С ДЕТАЛЯМИ --- */
-  .details-row {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    padding: 0;
-    margin: 0;
-  }
-
-  .wings,
-  .tails,
-  .horns {
-    width: 100%;
-    height: 40vw;
-    border: 0.65vw solid black;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-  }
-
-  .wings:hover,
-  .tails:hover,
-  .horns:hover {
-    transform: scale(1.1);
-  }
-}
-@media (max-width: 320px) {
-  /* --- БОКС ДЛЯ ВСЕГО ЛИЦА --- */
-   .face-layer {
-    width: 100vw;
-    height: 636.875vw;
-  }
-  }
-@media (max-width: 320px) {
- 
-  /* --- БРОВИ --- */
-  .brows-row {
-    width: 100vw;
-    height: 41.875vw;
-    overflow: hidden;
-    position: relative;
-    margin: 0;
-    padding: 0;
-  }
-
-  .brows-strip {
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    height: 100%;
-  }
-
-  .brows-strip .brows-row-atom {
-    width: 100vw;
-    height: 100%;
-    flex-shrink: 0; 
-  }
-
-  .ears-right,
-  .center-right-panel {
-    display: none;
-  }
-
-  /* --- ЛЕВЫЕ УШИ --- */
-  .ears-left {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 50vw;
-    height: 45vw;
-    overflow: hidden;
-    transform: translateY(-50%);
-    z-index: 0;
-  }
-
-  /* --- ЛЕВЫЕ ГЛАЗА --- */
-  .center-left-panel {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 50vw;
-    height: 45vw;
-    overflow: hidden;
-    transform: translateY(-50%);
-    z-index: 0;
-  }
-
-  /* --- РОТ И РУКИ --- */
-  .mouth-container {
-    position: static;
-    top: auto;
-    left: 0;
-    width: 100vw;
-    height: auto;
-    z-index: auto;
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* --- РОТ --- */
-  .mouth {
-    width: 100vw;
-    height: 60.625vw;
-    border: 0.65vw solid black;
-    flex-shrink: 0;
-    background-color: #F7DE1C;
-    background-image: url('../images/mouth closed.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    transition: background-image 0.3s ease;
-    display: block;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  /* --- ЛЕВАЯ РУКА --- */
-  .left-hand {
-    position: static;
-    width: 100vw;
-    height: 120.3125vw;
-    border: 0.65vw solid black;
-    display: block;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  /* --- ПРАВАЯ РУКА --- */
-  .right-hand {
-    display: none;
-  }
-  
 }
